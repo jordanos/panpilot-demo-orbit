@@ -1,0 +1,65 @@
+[
+  {
+    "name": "click_element",
+    "description": "Click a button, link, tab, card or search result in the Orbit UI on the user's behalf. Call read_current_page first to see the available targets in its `actions` list (e.g. \"generate-report\", \"new-automation\", \"project-website-redesign\"). You can also pass the visible label, e.g. \"Generate Report\".",
+    "executionSide": "client",
+    "parameters": {
+      "target": {
+        "type": "string",
+        "description": "Element id from read_current_page actions (preferred) or its visible label",
+        "required": true
+      }
+    }
+  },
+  {
+    "name": "search_workspace",
+    "description": "Type a query into Orbit's global search box so the user sees it, and return matching projects, people, automations and pages. Use when the user asks to find or search for something. Then open a result with click_element using its `target` (e.g. \"search-result-0\"), or set openFirst to true.",
+    "executionSide": "client",
+    "parameters": {
+      "query": {
+        "type": "string",
+        "description": "What to search for, e.g. \"mobile\" or \"Priya\"",
+        "required": true
+      },
+      "openFirst": {
+        "type": "boolean",
+        "description": "Open the top result immediately",
+        "required": false
+      }
+    }
+  },
+  {
+    "name": "fill_input",
+    "description": "Type into a text field or choose a dropdown option, e.g. the New project form (project-name, project-description, project-template, project-owner, project-due as YYYY-MM-DD, project-budget), the automation builder (automation-name, automation-trigger, automation-action), the add-task field (new-task-title) or settings (workspace-name, workspace-timezone). For dropdowns pass the option text.",
+    "executionSide": "client",
+    "parameters": {
+      "target": {
+        "type": "string",
+        "description": "Field id from read_current_page actions, or its label",
+        "required": true
+      },
+      "value": {
+        "type": "string",
+        "description": "Text to type, or the option to select",
+        "required": true
+      }
+    }
+  },
+  {
+    "name": "toggle_setting",
+    "description": "Turn an on/off switch on or off, e.g. pause or resume an automation (toggle-deadline-reminder), notification preferences (pref-weekly-report) or security settings (security-2fa).",
+    "executionSide": "client",
+    "parameters": {
+      "target": {
+        "type": "string",
+        "description": "Switch id from read_current_page actions, or its label",
+        "required": true
+      },
+      "enabled": {
+        "type": "boolean",
+        "description": "true = on/active, false = off/paused",
+        "required": true
+      }
+    }
+  }
+]

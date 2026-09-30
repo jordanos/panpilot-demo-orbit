@@ -1,0 +1,4 @@
+# Standalone install root — keeps Orbit out of the PanPilot meta workspace so
+# @panpilot/react resolves from npm, not from local SDK sources.
+packages:
+  - '.'
